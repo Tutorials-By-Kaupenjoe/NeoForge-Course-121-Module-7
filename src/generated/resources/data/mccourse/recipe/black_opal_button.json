@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "black_opal",
+  "ingredients": [
+    {
+      "item": "mccourse:black_opal"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mccourse:black_opal_button"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "black_opal",
+  "ingredient": {
+    "item": "mccourse:black_opal_nether_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "mccourse:black_opal"
+  }
+}

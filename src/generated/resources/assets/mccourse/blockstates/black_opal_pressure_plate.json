@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "mccourse:block/black_opal_pressure_plate"
+    },
+    "powered=true": {
+      "model": "mccourse:block/black_opal_pressure_plate_down"
+    }
+  }
+}

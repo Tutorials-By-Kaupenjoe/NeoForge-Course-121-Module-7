@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_magic_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mccourse:magic_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mccourse:black_opal_2"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_magic_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mccourse:black_opal_2"
+    ]
+  }
+}

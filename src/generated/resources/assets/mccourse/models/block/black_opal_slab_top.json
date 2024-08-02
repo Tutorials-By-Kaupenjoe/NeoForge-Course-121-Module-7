@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "mccourse:block/black_opal_block",
+    "side": "mccourse:block/black_opal_block",
+    "top": "mccourse:block/black_opal_block"
+  }
+}

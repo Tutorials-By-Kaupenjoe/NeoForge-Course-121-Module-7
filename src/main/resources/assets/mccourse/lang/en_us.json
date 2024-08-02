@@ -1,0 +1,39 @@
+{
+  "item.mccourse.black_opal": "Black Opal",
+  "item.mccourse.raw_black_opal": "Raw Black Opal",
+  "item.mccourse.chainsaw": "Chainsaw",
+  "item.mccourse.tomato": "Tomato",
+  "item.mccourse.frostfire_ice": "Frostfire Ice",
+
+
+  "block.mccourse.black_opal_block": "Block of Black Opal",
+  "block.mccourse.raw_black_opal_block": "Raw Black Opal Block",
+
+  "block.mccourse.black_opal_ore": "Black Opal Ore",
+  "block.mccourse.black_opal_deepslate_ore": "Black Opal Deepslate Ore",
+  "block.mccourse.black_opal_end_ore": "Black Opal End Ore",
+  "block.mccourse.black_opal_nether_ore": "Black Opal Nether Ore",
+
+  "block.mccourse.magic_block": "Magic Block",
+
+  "block.mccourse.black_opal_stairs": "Black Opal Stairs",
+  "block.mccourse.black_opal_slab": "Black Opal Slab",
+  "block.mccourse.black_opal_pressure_plate": "Black Opal Pressure Plate",
+  "block.mccourse.black_opal_button": "Black Opal Button",
+  "block.mccourse.black_opal_fence": "Black Opal Fence",
+  "block.mccourse.black_opal_fence_gate": "Black Opal Fence Gate",
+  "block.mccourse.black_opal_wall": "Black Opal Wall",
+  "block.mccourse.black_opal_door": "Black Opal Door",
+  "block.mccourse.black_opal_trapdoor": "Black Opal Trapdoor",
+
+
+  "tooltip.mccourse.chainsaw.tooltip.shift": "Press §eShift§r for more Information!",
+  "tooltip.mccourse.chainsaw.tooltip.1": "This chainsaw is awesome and will cut down trees!",
+  "tooltip.mccourse.chainsaw.tooltip.2": "§oChainsaw go vroom!§r",
+
+  "tooltip.mccourse.magic_block.tooltip.1": "This Block is §9MAGICAL§r",
+  "tooltip.mccourse.tomato.1": "Tomato; Tomato",
+
+  "itemGroup.mccourse.black_opal_items_tab": "Black Opal Items",
+  "itemGroup.mccourse.black_opal_blocks_tab": "Black Opal Blocks"
+}

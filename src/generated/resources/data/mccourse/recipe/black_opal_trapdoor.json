@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "black_opal",
+  "key": {
+    "#": {
+      "item": "mccourse:black_opal"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "mccourse:black_opal_trapdoor"
+  }
+}
