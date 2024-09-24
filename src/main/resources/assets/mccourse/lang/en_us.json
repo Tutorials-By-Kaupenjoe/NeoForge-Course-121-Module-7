@@ -36,5 +36,7 @@
   "tooltip.mccourse.tomato.1": "Tomato; Tomato",
 
   "itemGroup.mccourse.black_opal_items_tab": "Black Opal Items",
-  "itemGroup.mccourse.black_opal_blocks_tab": "Black Opal Blocks"
+  "itemGroup.mccourse.black_opal_blocks_tab": "Black Opal Blocks",
+
+  "blockentity.mccourse.pedestal": "Pedestal"
 }
