@@ -47,6 +47,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.BLACK_OPAL_FENCE_GATE);
 
         blockItem(ModBlocks.BLACK_OPAL_TRAPDOOR, "_bottom");
+
+        blockWithItem(ModBlocks.CRYSTALLIZER);
     }
 
     private void blockWithItem(DeferredBlock<Block> deferredBlock) {
