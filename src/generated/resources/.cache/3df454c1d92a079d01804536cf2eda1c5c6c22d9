@@ -1,4 +1,4 @@
-// 1.21.1	2024-09-25T21:03:46.0204716	Block States: mccourse
+// 1.21.1	2024-09-25T21:18:17.2228855	Block States: mccourse
 b548ddf1ba2ad5a2d24ac1505a095060da0f300b assets/mccourse/blockstates/black_opal_block.json
 d9ba7c55bae42b6d6fadaef16516e5e401e50636 assets/mccourse/blockstates/black_opal_button.json
 8011a7ad7f38c38738b4f0281d8f963e63e147b7 assets/mccourse/blockstates/black_opal_deepslate_ore.json
@@ -13,7 +13,6 @@ e2b7597798ab27b4d66d71cdcc0056d1331a693b assets/mccourse/blockstates/black_opal_
 0616f39bd6edcd5952f53e79c6881350e9c3016f assets/mccourse/blockstates/black_opal_stairs.json
 95b95553215cc11c7486710707f511114d063dce assets/mccourse/blockstates/black_opal_trapdoor.json
 be95e9c05b17b375eb38929668f451d7cf211456 assets/mccourse/blockstates/black_opal_wall.json
-ce8b89d73a1830da6c4017885f8cb6536b5ec8ac assets/mccourse/blockstates/crystallizer.json
 bc7d21f942c84b754066fc4a8c9f34dc61953149 assets/mccourse/blockstates/magic_block.json
 350efab9079195561f26d5623ae2699910f7c5e3 assets/mccourse/blockstates/raw_black_opal_block.json
 16594933daac66af92459e3f64b9541403a09a5a assets/mccourse/models/block/black_opal_block.json
@@ -50,7 +49,6 @@ ceb85fbabd76399dabc8d6cc20f357a4ae0868a8 assets/mccourse/models/block/black_opal
 d3315bbf94651065488c3233eb298e710c5ab57d assets/mccourse/models/block/black_opal_wall_post.json
 0a2b7fc6cb102c1cd93752860f5669803fa99247 assets/mccourse/models/block/black_opal_wall_side.json
 aad34e0c40d36041da04e90471b6ad68b2fe89da assets/mccourse/models/block/black_opal_wall_side_tall.json
-4ea4d1c317f05f741c48794bc14513a8945b8637 assets/mccourse/models/block/crystallizer.json
 e3bea00dd7e933deb59eaf492b010a1f8fdd914f assets/mccourse/models/block/magic_block.json
 92bc8351a686ddaf46e7372dbff2d7cd7223d510 assets/mccourse/models/block/raw_black_opal_block.json
 850bccb986ef052432ab1d7ae2578dae5a2a1327 assets/mccourse/models/item/black_opal_block.json
