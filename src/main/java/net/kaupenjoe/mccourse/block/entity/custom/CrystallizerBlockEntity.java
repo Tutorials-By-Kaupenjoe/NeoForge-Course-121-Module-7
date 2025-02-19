@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.block.entity.custom;
 
 import net.kaupenjoe.mccourse.block.custom.CrystallizerBlock;
 import net.kaupenjoe.mccourse.block.entity.ModBlockEntities;
+import net.kaupenjoe.mccourse.block.entity.energy.ModEnergyStorage;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.recipe.CrystallizerRecipe;
 import net.kaupenjoe.mccourse.recipe.CrystallizerRecipeInput;
@@ -27,6 +28,7 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
@@ -53,6 +55,19 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     private int progress = 0;
     private int maxProgress = 72;
     private final int DEFAULT_MAX_PROGRESS = 72;
+
+    private static final int ENERGY_CRAFT_AMOUNT = 25; // amount of energy per tick to craft
+
+    private final ModEnergyStorage ENERGY_STORAGE = createEnergyStorage();
+    private ModEnergyStorage createEnergyStorage() {
+        return new ModEnergyStorage(64000, 320) {
+            @Override
+            public void onEnergyChanged() {
+                setChanged();
+                getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+            }
+        };
+    }
 
     public CrystallizerBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.CRYSTALLIZER_BE.get(), pPos, pBlockState);
@@ -81,6 +96,10 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         };
     }
 
+    public IEnergyStorage getEnergyStorage(@Nullable Direction direction) {
+        return this.ENERGY_STORAGE;
+    }
+
     public IItemHandler getItemHandler(Direction direction) {
         return this.itemHandler;
     }
@@ -102,6 +121,8 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         pTag.putInt("crystallizer.progress", progress);
         pTag.putInt("crystallizer.max_progress", maxProgress);
 
+        pTag.putInt("crystallizer.energy", ENERGY_STORAGE.getEnergyStored());
+
         super.saveAdditional(pTag, pRegistries);
     }
 
@@ -111,6 +132,8 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
         progress = pTag.getInt("crystallizer.progress");
         maxProgress = pTag.getInt("crystallizer.max_progress");
+
+        ENERGY_STORAGE.setEnergy(pTag.getInt("crystallizer.energy"));
     }
 
     public void drops() {
@@ -125,6 +148,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     public void tick(Level level, BlockPos pPos, BlockState pState) {
         if(hasRecipe() && isOutputSlotEmptyOrReceivable()) {
             increaseCraftingProgress();
+            useEnergyForCrafting();
             level.setBlockAndUpdate(pPos, pState.setValue(CrystallizerBlock.LIT, true));
             setChanged(level, pPos, pState);
 
@@ -137,6 +161,10 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
             resetProgress();
             level.setBlockAndUpdate(pPos, pState.setValue(CrystallizerBlock.LIT, false));
         }
+    }
+
+    private void useEnergyForCrafting() {
+        this.ENERGY_STORAGE.extractEnergy(ENERGY_CRAFT_AMOUNT, false);
     }
 
     private void resetProgress() {
@@ -173,7 +201,11 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         }
 
         ItemStack output = recipe.get().value().getResultItem(null);
-        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output) && hasEnoughEnergyToCraft();
+    }
+
+    private boolean hasEnoughEnergyToCraft() {
+        return this.ENERGY_STORAGE.getEnergyStored() >= ENERGY_CRAFT_AMOUNT * maxProgress;
     }
 
     private Optional<RecipeHolder<CrystallizerRecipe>> getCurrentRecipe() {
