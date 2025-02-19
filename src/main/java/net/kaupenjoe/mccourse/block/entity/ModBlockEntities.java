@@ -2,6 +2,7 @@ package net.kaupenjoe.mccourse.block.entity;
 
 import net.kaupenjoe.mccourse.MCCourseMod;
 import net.kaupenjoe.mccourse.block.ModBlocks;
+import net.kaupenjoe.mccourse.block.entity.custom.CoalGeneratorBlockEntity;
 import net.kaupenjoe.mccourse.block.entity.custom.CrystallizerBlockEntity;
 import net.kaupenjoe.mccourse.block.entity.custom.PedestalBlockEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -22,6 +23,10 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<CrystallizerBlockEntity>> CRYSTALLIZER_BE =
             BLOCK_ENTITIES.register("crystallizer_be", () -> BlockEntityType.Builder.of(
                     CrystallizerBlockEntity::new, ModBlocks.CRYSTALLIZER.get()).build(null));
+
+    public static final Supplier<BlockEntityType<CoalGeneratorBlockEntity>> COAL_GENERATOR_BE =
+            BLOCK_ENTITIES.register("coal_generator_be", () -> BlockEntityType.Builder.of(
+                    CoalGeneratorBlockEntity::new, ModBlocks.COAL_GENERATOR.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

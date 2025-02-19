@@ -3,7 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.145'
+    id 'net.neoforged.gradle.userdev' version '7.0.171'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -29,6 +29,13 @@ repositories {
         // location of a maven mirror for JEI files, as a fallback
         name = "ModMaven"
         url = "https://modmaven.dev"
+    }
+
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
     }
 }
 
@@ -113,6 +120,14 @@ dependencies {
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     // at runtime, use the full JEI jar for NeoForge
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+
+    implementation "curse.maven:industrial-foregoing-266515:6196910"
+    implementation "curse.maven:titanium-287342:6155132"
+
+    implementation "curse.maven:modern-industrialization-405388:6161932"
+    implementation "curse.maven:cloth-config-348521:5729127"
+
+    implementation "curse.maven:mekanism-268560:6018306"
 
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

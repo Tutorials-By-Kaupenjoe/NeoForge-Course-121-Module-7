@@ -53,6 +53,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //         modLoc("block/crystallizer_front"),
         //         mcLoc("block/blast_furnace_top")));
         blockItem(ModBlocks.CRYSTALLIZER);
+        blockWithItem(ModBlocks.COAL_GENERATOR);
     }
 
     private void blockWithItem(DeferredBlock<Block> deferredBlock) {

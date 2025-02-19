@@ -1,4 +1,4 @@
-// 1.21.1	2024-09-25T16:28:03.0173974	Loot Tables
+// 1.21.1	2025-02-19T15:13:07.9462602	Loot Tables
 5bd3bb7304b3d56f341a1fa283ab1fd3b158e989 data/mccourse/loot_table/blocks/black_opal_block.json
 ec8eba19955dfbf511071d4e6bff1594e90aae93 data/mccourse/loot_table/blocks/black_opal_button.json
 ac97f2112eaf41f0fc26f462aa3ab72646904658 data/mccourse/loot_table/blocks/black_opal_deepslate_ore.json
@@ -13,6 +13,7 @@ c1bcded8838560db884dd1290769dcad10c23635 data/mccourse/loot_table/blocks/black_o
 4031d97fc4e40d2ff5d9663361a9aa1c5039b232 data/mccourse/loot_table/blocks/black_opal_stairs.json
 cb95bd09f5f411095434970da01857a4b3fdbf60 data/mccourse/loot_table/blocks/black_opal_trapdoor.json
 11ad661371a48c7e8517eb662c35c95ad4441308 data/mccourse/loot_table/blocks/black_opal_wall.json
+e00e4eb6d54d1b1c90e6fca89e8d2e64836ea0d1 data/mccourse/loot_table/blocks/coal_generator.json
 050f1914267178a4acec4704b2f52b37cae887b1 data/mccourse/loot_table/blocks/crystallizer.json
 cde659bef06aa83db7389e11e50b9b4823081230 data/mccourse/loot_table/blocks/pedestal.json
 50415aed90ef076bc00ef891626fa6ef366aec46 data/mccourse/loot_table/blocks/raw_black_opal_block.json
