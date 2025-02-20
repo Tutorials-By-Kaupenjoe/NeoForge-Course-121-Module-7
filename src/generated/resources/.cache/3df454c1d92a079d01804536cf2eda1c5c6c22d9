@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-19T15:13:07.9483341	Block States: mccourse
+// 1.21.1	2025-02-20T18:22:59.2850926	Block States: mccourse
 b548ddf1ba2ad5a2d24ac1505a095060da0f300b assets/mccourse/blockstates/black_opal_block.json
 d9ba7c55bae42b6d6fadaef16516e5e401e50636 assets/mccourse/blockstates/black_opal_button.json
 8011a7ad7f38c38738b4f0281d8f963e63e147b7 assets/mccourse/blockstates/black_opal_deepslate_ore.json
@@ -16,6 +16,7 @@ be95e9c05b17b375eb38929668f451d7cf211456 assets/mccourse/blockstates/black_opal_
 e05f740d08764027a5b5aceb7cc567fbe6167ea5 assets/mccourse/blockstates/coal_generator.json
 bc7d21f942c84b754066fc4a8c9f34dc61953149 assets/mccourse/blockstates/magic_block.json
 350efab9079195561f26d5623ae2699910f7c5e3 assets/mccourse/blockstates/raw_black_opal_block.json
+5479cdc9f96ba5a1104a550fbfe01edc34272c2c assets/mccourse/blockstates/tank.json
 16594933daac66af92459e3f64b9541403a09a5a assets/mccourse/models/block/black_opal_block.json
 fd92f0bf5221644d72df12c78fca85daca76063f assets/mccourse/models/block/black_opal_button.json
 fe7013fffcddcdc89a2e3f2f8c856a332ddea9ff assets/mccourse/models/block/black_opal_button_pressed.json
@@ -53,6 +54,7 @@ aad34e0c40d36041da04e90471b6ad68b2fe89da assets/mccourse/models/block/black_opal
 9f493d4b9bfdb209369805306b2871ded96b397b assets/mccourse/models/block/coal_generator.json
 e3bea00dd7e933deb59eaf492b010a1f8fdd914f assets/mccourse/models/block/magic_block.json
 92bc8351a686ddaf46e7372dbff2d7cd7223d510 assets/mccourse/models/block/raw_black_opal_block.json
+324b722a885dfa7375f801488a3bcde9e19d07dd assets/mccourse/models/block/tank.json
 850bccb986ef052432ab1d7ae2578dae5a2a1327 assets/mccourse/models/item/black_opal_block.json
 453c92a815a8d8bae418983e76f5ba62350864d9 assets/mccourse/models/item/black_opal_deepslate_ore.json
 aa57c162b02dcc944bdffd94bfbeaa4a2bcfa499 assets/mccourse/models/item/black_opal_end_ore.json
@@ -67,3 +69,4 @@ bf216e482fe415b0580c56ccc332943e6dba0ba3 assets/mccourse/models/item/black_opal_
 370bb17deeb36c83225b692b78902a12ca210d57 assets/mccourse/models/item/crystallizer.json
 81592028bd20273a9ad8afaf67ef7059fbe88e93 assets/mccourse/models/item/magic_block.json
 6ce5de5fe9c4c3406e90502b7f35cb97cdfa68d8 assets/mccourse/models/item/raw_black_opal_block.json
+c25d77e9e2caa3955907cdc6f66a83a03c47b2cc assets/mccourse/models/item/tank.json

@@ -10,6 +10,7 @@ import net.kaupenjoe.mccourse.screen.ModMenuTypes;
 import net.kaupenjoe.mccourse.screen.custom.CoalGeneratorScreen;
 import net.kaupenjoe.mccourse.screen.custom.CrystallizerScreen;
 import net.kaupenjoe.mccourse.screen.custom.PedestalScreen;
+import net.kaupenjoe.mccourse.screen.custom.TankScreen;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
@@ -39,7 +40,7 @@ public class MCCourseMod {
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "mccourse";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
@@ -115,6 +116,7 @@ public class MCCourseMod {
             event.register(ModMenuTypes.CRYSTALLIZER_MENU.get(), CrystallizerScreen::new);
 
             event.register(ModMenuTypes.COAL_GENERATOR_MENU.get(), CoalGeneratorScreen::new);
+            event.register(ModMenuTypes.TANK_MENU.get(), TankScreen::new);
         }
     }
 }

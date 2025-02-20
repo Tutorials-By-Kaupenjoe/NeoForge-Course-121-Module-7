@@ -29,6 +29,7 @@
   "block.mccourse.pedestal": "Pedestal",
   "block.mccourse.crystallizer": "Crystallizer",
   "block.mccourse.coal_generator": "Coal Generator",
+  "block.mccourse.tank": "Tank",
 
   "tooltip.mccourse.chainsaw.tooltip.shift": "Press §eShift§r for more Information!",
   "tooltip.mccourse.chainsaw.tooltip.1": "This chainsaw is awesome and will cut down trees!",
@@ -41,5 +42,8 @@
   "itemGroup.mccourse.black_opal_blocks_tab": "Black Opal Blocks",
 
   "blockentity.mccourse.pedestal": "Pedestal",
-  "blockentity.mccourse.crystallizer": "Crystallizer"
+  "blockentity.mccourse.crystallizer": "Crystallizer",
+
+  "mccourse.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+  "mccourse.tooltip.liquid.amount": "%s mB"
 }

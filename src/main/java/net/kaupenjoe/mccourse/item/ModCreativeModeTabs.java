@@ -61,6 +61,9 @@ public class ModCreativeModeTabs {
 
                         pOutput.accept(ModBlocks.PEDESTAL.get());
                         pOutput.accept(ModBlocks.CRYSTALLIZER.get());
+
+                        pOutput.accept(ModBlocks.COAL_GENERATOR.get());
+                        pOutput.accept(ModBlocks.TANK.get());
                     }).build());
 
 

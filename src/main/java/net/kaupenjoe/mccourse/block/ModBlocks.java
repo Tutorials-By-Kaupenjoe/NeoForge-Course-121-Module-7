@@ -1,10 +1,7 @@
 package net.kaupenjoe.mccourse.block;
 
 import net.kaupenjoe.mccourse.MCCourseMod;
-import net.kaupenjoe.mccourse.block.custom.CoalGeneratorBlock;
-import net.kaupenjoe.mccourse.block.custom.CrystallizerBlock;
-import net.kaupenjoe.mccourse.block.custom.MagicBlock;
-import net.kaupenjoe.mccourse.block.custom.PedestalBlock;
+import net.kaupenjoe.mccourse.block.custom.*;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -75,6 +72,9 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> COAL_GENERATOR = registerBlock("coal_generator",
             () -> new CoalGeneratorBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> TANK = registerBlock("tank",
+            () -> new TankBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().noOcclusion()));
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

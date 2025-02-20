@@ -54,6 +54,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //         mcLoc("block/blast_furnace_top")));
         blockItem(ModBlocks.CRYSTALLIZER);
         blockWithItem(ModBlocks.COAL_GENERATOR);
+        blockWithItemWithRenderType(ModBlocks.TANK, "translucent");
+    }
+
+    private void blockWithItemWithRenderType(DeferredBlock<Block> deferredBlock, String renderType) {
+        simpleBlockWithItem(deferredBlock.get(), models().cubeAll(deferredBlock.getId().getPath(),
+                modLoc("block/" +deferredBlock.getId().getPath())).renderType(renderType));
     }
 
     private void blockWithItem(DeferredBlock<Block> deferredBlock) {

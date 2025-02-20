@@ -4,6 +4,7 @@ import net.kaupenjoe.mccourse.MCCourseMod;
 import net.kaupenjoe.mccourse.block.entity.ModBlockEntities;
 import net.kaupenjoe.mccourse.block.entity.custom.CoalGeneratorBlockEntity;
 import net.kaupenjoe.mccourse.block.entity.custom.CrystallizerBlockEntity;
+import net.kaupenjoe.mccourse.block.entity.custom.TankBlockEntity;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.Capabilities;
@@ -17,5 +18,7 @@ public class ModBusEvents {
 
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, ModBlockEntities.COAL_GENERATOR_BE.get(), CoalGeneratorBlockEntity::getEnergyStorage);
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, ModBlockEntities.CRYSTALLIZER_BE.get(), CrystallizerBlockEntity::getEnergyStorage);
+
+        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, ModBlockEntities.TANK_BE.get(), TankBlockEntity::getTank);
     }
 }
