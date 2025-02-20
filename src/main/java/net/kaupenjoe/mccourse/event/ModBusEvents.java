@@ -20,5 +20,6 @@ public class ModBusEvents {
         event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, ModBlockEntities.CRYSTALLIZER_BE.get(), CrystallizerBlockEntity::getEnergyStorage);
 
         event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, ModBlockEntities.TANK_BE.get(), TankBlockEntity::getTank);
+        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, ModBlockEntities.CRYSTALLIZER_BE.get(), CrystallizerBlockEntity::getFluidTank);
     }
 }

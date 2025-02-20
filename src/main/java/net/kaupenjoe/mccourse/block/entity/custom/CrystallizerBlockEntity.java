@@ -28,7 +28,13 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.energy.IEnergyStorage;
+import net.neoforged.neoforge.fluids.FluidActionResult;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidUtil;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
@@ -57,6 +63,25 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
     private final int DEFAULT_MAX_PROGRESS = 72;
 
     private static final int ENERGY_CRAFT_AMOUNT = 25; // amount of energy per tick to craft
+    private static final int FLUID_CRAFT_AMOUNT = 1000; // amount of fluid per crafting that is consumed
+
+    private final FluidTank FLUID_TANK = createFluidTank();
+    private FluidTank createFluidTank() {
+        return new FluidTank(16000) {
+            @Override
+            protected void onContentsChanged() {
+                setChanged();
+                if(!level.isClientSide()) {
+                    level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+                }
+            }
+
+            @Override
+            public boolean isFluidValid(FluidStack stack) {
+                return true;
+            }
+        };
+    }
 
     private final ModEnergyStorage ENERGY_STORAGE = createEnergyStorage();
     private ModEnergyStorage createEnergyStorage() {
@@ -100,6 +125,14 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         return this.ENERGY_STORAGE;
     }
 
+    public IFluidHandler getFluidTank(@Nullable Direction direction) {
+        return this.FLUID_TANK;
+    }
+
+    public FluidStack getFluid() {
+        return FLUID_TANK.getFluid();
+    }
+
     public IItemHandler getItemHandler(Direction direction) {
         return this.itemHandler;
     }
@@ -122,6 +155,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         pTag.putInt("crystallizer.max_progress", maxProgress);
 
         pTag.putInt("crystallizer.energy", ENERGY_STORAGE.getEnergyStored());
+        pTag = FLUID_TANK.writeToNBT(pRegistries, pTag);
 
         super.saveAdditional(pTag, pRegistries);
     }
@@ -134,6 +168,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         maxProgress = pTag.getInt("crystallizer.max_progress");
 
         ENERGY_STORAGE.setEnergy(pTag.getInt("crystallizer.energy"));
+        FLUID_TANK.readFromNBT(pRegistries, pTag);
     }
 
     public void drops() {
@@ -154,6 +189,7 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
 
             if (hasCraftingFinished()) {
                 craftItem();
+                extractFluidForCrafting();
                 resetProgress();
             }
 
@@ -161,6 +197,27 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
             resetProgress();
             level.setBlockAndUpdate(pPos, pState.setValue(CrystallizerBlock.LIT, false));
         }
+
+        if (hasFluidStackInSlot()) {
+            transferFluidToTank();
+        }
+    }
+
+    private void extractFluidForCrafting() {
+        this.FLUID_TANK.drain(FLUID_CRAFT_AMOUNT, IFluidHandler.FluidAction.EXECUTE);
+    }
+
+    private void transferFluidToTank() {
+        FluidActionResult result = FluidUtil.tryEmptyContainer(itemHandler.getStackInSlot(0), this.FLUID_TANK, Integer.MAX_VALUE, null, true);
+        if(result.result != ItemStack.EMPTY) {
+            itemHandler.setStackInSlot(FLUID_ITEM_SLOT, result.result);
+        }
+    }
+
+    private boolean hasFluidStackInSlot() {
+        return !itemHandler.getStackInSlot(FLUID_ITEM_SLOT).isEmpty()
+                && itemHandler.getStackInSlot(FLUID_ITEM_SLOT).getCapability(Capabilities.FluidHandler.ITEM, null) != null
+                && !itemHandler.getStackInSlot(FLUID_ITEM_SLOT).getCapability(Capabilities.FluidHandler.ITEM, null).getFluidInTank(0).isEmpty();
     }
 
     private void useEnergyForCrafting() {
@@ -201,7 +258,11 @@ public class CrystallizerBlockEntity extends BlockEntity implements MenuProvider
         }
 
         ItemStack output = recipe.get().value().getResultItem(null);
-        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output) && hasEnoughEnergyToCraft();
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output) && hasEnoughEnergyToCraft() && hasEnoughFluidToCraft();
+    }
+
+    private boolean hasEnoughFluidToCraft() {
+        return FLUID_TANK.getFluidAmount() >= FLUID_CRAFT_AMOUNT;
     }
 
     private boolean hasEnoughEnergyToCraft() {
