@@ -3,6 +3,7 @@ package net.kaupenjoe.mccourse;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.block.entity.ModBlockEntities;
 import net.kaupenjoe.mccourse.block.entity.renderer.PedestalBlockEntityRenderer;
+import net.kaupenjoe.mccourse.block.entity.renderer.TankBlockEntityRenderer;
 import net.kaupenjoe.mccourse.item.ModCreativeModeTabs;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.kaupenjoe.mccourse.recipe.ModRecipes;
@@ -108,6 +109,7 @@ public class MCCourseMod {
         @SubscribeEvent
         public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.TANK_BE.get(), TankBlockEntityRenderer::new);
         }
 
         @SubscribeEvent
